@@ -10,8 +10,9 @@ public class CalculadoraTest04 {
         System.out.println(result);
 
         //OU
-
         System.out.println(calculadora.dividaDoisNumeros02(20, 4));
-    }
 
+        System.out.println("----------");
+      calculadora.imprimeDivisaoDeDoisNumeros(86, 5);
+    }
 }

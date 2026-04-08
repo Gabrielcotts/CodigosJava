@@ -1,28 +1,31 @@
+package Academia;
+
 public class ProjetoAcademia {
-    static void main(String[] args) {
 
-        double salario = 986.22;
-        double passagem = 238.15;
-        int mãeDivida = 200;
-        int victorDivida = 150;
+    public double calcularReceita(double mensalidade, int totalAlunos) {
+        return mensalidade * totalAlunos;
+    }
 
-        double dinheiroTrabalho = salario + passagem;
-        double rendimentoTotal = dinheiroTrabalho + mãeDivida + victorDivida;
+    public double calcularDespesas(double aluguel, double funcionarios, double energia) {
+        return aluguel + funcionarios + energia;
+    }
 
-        System.out.println("Valor recebido no trabalho " + dinheiroTrabalho);
-        System.out.println("Valor total recebido " + rendimentoTotal);
+    public double calcularLucro(double receita, double despesas) {
+        return receita - despesas;
+    }
 
-        double dividaFaculdade = 745.52;
-        double dividaVivo = 44.00;
+    public void mostrarResumo(double receita, double despesas, double lucro) {
+        System.out.println("\n--- RESUMO FINANCEIRO DA ACADEMIA ---");
+        System.out.println("Receita mensal: R$ " + receita);
+        System.out.println("Despesas mensais: R$ " + despesas);
+        System.out.println("Lucro mensal: R$ " + lucro);
 
-        double dividasFixasParaPagar = dividaFaculdade + dividaVivo;
-
-        System.out.println("Dívidas fixas a pagar por mês " + dividasFixasParaPagar);
-
-        double sobraMensal = rendimentoTotal - dividasFixasParaPagar;
-
-        System.out.println("Valor que sobra mensalmente: " + sobraMensal);
-
-
+        if (lucro > 0) {
+            System.out.println("Situação: Lucro ");
+        } else if (lucro == 0) {
+            System.out.println("Situação: Empate ");
+        } else {
+            System.out.println("Situação: Prejuízo ");
+        }
     }
 }

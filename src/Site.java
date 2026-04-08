@@ -13,7 +13,7 @@ public class Site {
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))) {
 
             String linha;
-            br.readLine(); // Pular cabeçalho
+            br.readLine(); 
 
             while ((linha = br.readLine()) != null) {
 
@@ -21,7 +21,7 @@ public class Site {
 
                 String[] dados = linha.split(",");
 
-                if (dados.length < 3) continue; // evita erro de índice
+                if (dados.length < 3) continue; 
 
                 try {
                     String nome = dados[0].trim();
@@ -62,7 +62,6 @@ public class Site {
         System.out.println("Maior salário: R$ " + maior);
         System.out.println("Desvio padrão: R$ " + desvio);
 
-        // Listar os funcionários com o maior salário
         System.out.println("\n=== Funcionários com o maior salário ===");
         for (int i = 0; i < salarios.size(); i++) {
             if (salarios.get(i) == maior) {
@@ -70,7 +69,6 @@ public class Site {
             }
         }
 
-        // Percentual do salário de cada funcionário
         System.out.println("\n=== Percentual do salário em relação ao total pago ===");
         for (int i = 0; i < salarios.size(); i++) {
             double percentual = (salarios.get(i) / totalPago) * 100;

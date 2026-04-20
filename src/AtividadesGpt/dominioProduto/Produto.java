@@ -5,6 +5,4 @@ public class Produto {
     public String nome;
     public double preço;
     public int quantidade;
-
-
 }

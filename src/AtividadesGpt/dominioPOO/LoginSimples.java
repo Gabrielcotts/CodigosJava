@@ -1,4 +1,4 @@
-package Atividades.dominioPOO;
+package AtividadesGpt.dominioPOO;
 
 public class LoginSimples {
     public static boolean validarLogin(String usuario, String senha){

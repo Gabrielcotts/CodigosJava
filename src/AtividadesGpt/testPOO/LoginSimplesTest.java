@@ -1,6 +1,4 @@
-package Atividades.testePOO;
-
-import Atividades.dominioPOO.LoginSimples;
+package AtividadesGpt.testPOO;
 
 import java.util.Scanner;
 
@@ -16,7 +14,7 @@ public class LoginSimplesTest {
         System.out.println("Digite sua senha: ");
         String senha = scanner.nextLine();
 
-        if (!usuario.isEmpty() && !senha.isEmpty()) {
+        if (usuario.isEmpty() || senha.isEmpty()) {
             System.out.println("Erro: dados inválidos");
         } else {
             System.out.println("Usuário: " + usuario);
@@ -24,3 +22,4 @@ public class LoginSimplesTest {
         }
     }
 }
+

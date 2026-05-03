@@ -1,0 +1,41 @@
+package AtividadesGpt.testPOO;
+
+import AtividadesGpt.dominioPOO.Produto;
+
+import java.util.Scanner;
+
+public class ProdutoTest {
+    public static void main(String[] args) {
+
+        Produto produto = new Produto();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite o nome do produto: ");
+        produto.nome = scanner.nextLine();
+
+        System.out.println("Digite o valor do produto: ");
+        produto.preco = scanner.nextDouble();
+
+        System.out.println("Digite a quantidade do produto: ");
+        produto.quantidade = scanner.nextInt();
+
+        System.out.println("Digite o percentual de desconto: ");
+        double desconto = scanner.nextDouble();
+
+        double total = produto.calcularTotal();
+        double valorDesconto = produto.aplicarDesconto(desconto);
+        double totalFinal = produto.calcularTotalComDesconto(desconto);
+
+        System.out.println("\n--- DESCRIÇÃO DO PEDIDO ---");
+        System.out.println("Nome: " + produto.nome);
+        System.out.println("Valor unitário: R$ " + produto.preco);
+        System.out.println("Quantidade: " + produto.quantidade);
+
+        System.out.println("\nValor total sem desconto: R$ " + total);
+        System.out.println("Desconto aplicado: " + desconto + "%");
+        System.out.println("Valor do desconto: R$ " + valorDesconto);
+        System.out.println("Valor final com desconto: R$ " + totalFinal);
+
+        scanner.close();
+    }
+}

@@ -1,0 +1,29 @@
+package AtividadesGpt.dominioPOO;
+
+public class Produto {
+    public String nome;
+    public double preco;
+    public int quantidade;
+
+    public double calcularTotal() {
+        return preco * quantidade;
+    }
+
+    public double aplicarDesconto(double percentual) {
+        if (percentual > 50) {
+            System.out.println("Desconto não permitido!");
+            return 0;
+        }
+
+        double total = calcularTotal();
+        double valorDesconto = total * (percentual / 100);
+
+        return valorDesconto;
+    }
+    public double calcularTotalComDesconto(double percentual) {
+        double total = calcularTotal();
+        double desconto = aplicarDesconto(percentual);
+
+        return total - desconto;
+    }
+}

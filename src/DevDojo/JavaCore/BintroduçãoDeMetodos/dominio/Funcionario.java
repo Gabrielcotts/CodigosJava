@@ -1,33 +1,50 @@
-package MaratonaJava.dominio;
+package AtividadesGpt.dominioPOO;
 
 public class Funcionario {
-
-    public String nome;
-    public int idade;
-    public double[] salarios;
+    private String nome;
+    private double salario;
+    private String cargo;
 
     public void imprimeDados() {
-        System.out.println(this.nome);
-        System.out.println(this.idade);
-        if (salarios == null){
-            return;
-        }
-        for (double salarios : salarios) {
-            System.out.print(salarios + " ");
-        }
-        imprimeMediaSalarial();
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Salário: R$ " + this.salario);
+        System.out.println("Cargo: " + this.cargo);
     }
 
-    public void imprimeMediaSalarial() {
-        if (salarios == null){
+    public boolean setNome(String nome) {
+
+        if (nome == null || nome.isEmpty()) {
+            return false;
+        }
+        this.nome = nome;
+        return true;
+    }
+
+    public void setSalario(double salario) {
+        if (salario < 0) {
+            System.out.println("Salário inválido!");
             return;
         }
-        double media = 0;
+        this.salario = salario;
+    }
 
-        for (double salarios : salarios){
-            media += salarios;
+    public void setCargo(String cargo) {
+
+        if (cargo == null || cargo.isEmpty()) {
+            return;
         }
-        media /= salarios.length;
-        System.out.println("\nMédia salarial: " + media);
+        this.cargo = cargo;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public double getSalario() {
+        return this.salario;
+    }
+
+    public String getCargo() {
+        return this.cargo;
     }
 }

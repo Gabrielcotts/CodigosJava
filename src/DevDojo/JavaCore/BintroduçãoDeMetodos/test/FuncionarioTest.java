@@ -1,19 +1,22 @@
-package MaratonaJava.test;
+package AtividadesGpt.testePOO;
 
-import MaratonaJava.dominio.Funcionario;
-
-import java.util.Scanner;
+import AtividadesGpt.dominioPOO.Funcionario;
 
 public class FuncionarioTest {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
         Funcionario funcionario = new Funcionario();
 
-        funcionario.nome = "Sanji";
-        funcionario.idade = 21;
-        funcionario.salarios = new double[]{1200.76, 987.32, 1678.21};
+        boolean nomeValido = funcionario.setNome("Gabriel");
+
+        if (!nomeValido) {
+            System.out.println("Usuário não pode estar vazio");
+            return;
+        }
+
+        funcionario.setSalario(986.27);
+        funcionario.setCargo("Jovem aprendiz");
 
         funcionario.imprimeDados();
-
     }
 }

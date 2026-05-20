@@ -9,11 +9,14 @@ public class FuncionarioTest {
         Scanner scanner = new Scanner(System.in);
         Funcionario funcionario = new Funcionario();
 
-        funcionario.nome = "Sanji";
-        funcionario.idade = 21;
-        funcionario.salarios = new double[]{1200.76, 987.32, 1678.21};
+        funcionario.setNome("Sanji");
+        funcionario.setIdade(21);
+        funcionario.setSalarios(new double[]{1200.76, 987.32, 1678.21});
+
 
         funcionario.imprimeDados();
+        System.out.println("Média: " + funcionario.getMedia());
+
 
     }
 }

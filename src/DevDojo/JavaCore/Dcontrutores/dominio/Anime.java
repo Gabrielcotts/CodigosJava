@@ -5,19 +5,26 @@ public class Anime {
     private String tipo;
     private String genero;
     private int episodio;
+    private String estudio;
 
-/*Construtor não recebe retorno de nada! Se tem retorno é metodo!*/
-    public Anime(String nome, String tipo, String genero, int episodio){
-        System.out.println("Dentro do construtor");
+    /*Construtor não recebe retorno de nada! Se tem retorno é metodo!*/
+    public Anime(String nome, String tipo, String genero, int episodio) {
+        this(); //Só pode ser chamado desse jeito dentro de contrutores
         this.nome = nome;
         this.tipo = tipo;
         this.genero = genero;
         this.episodio = episodio;
     }
 
-    /*Sobrecarga de construtores!*/
-    public Anime(){
+    public Anime(String nome, String tipo, String genero, int episodio, String estudio) {
+        this(nome, tipo, genero, episodio); /*Para usar esse this em contrutores, ele
+                                            obrigatoriamente precisa ser ZZa primeira linha executável */
+        this.estudio = estudio;
+    }
 
+    /*Sobrecarga de construtores!*/
+    public Anime() {
+        System.out.println("Dentro do construtor sem argumentos!");
     }
 
     public void imprime() {
@@ -26,6 +33,7 @@ public class Anime {
         System.out.println(this.tipo);
         System.out.println(this.genero);
         System.out.println(this.episodio);
+        System.out.println(this.estudio);
     }
 
     public void setNome(String nome) {

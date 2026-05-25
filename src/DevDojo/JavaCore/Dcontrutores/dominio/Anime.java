@@ -10,7 +10,7 @@ public class Anime {
     /*Construtor não recebe retorno de nada! Se tem retorno é metodo!*/
     public Anime(String nome, String tipo, String genero, int episodio) {
         this(); //Só pode ser chamado desse jeito dentro de contrutores
-        this.nome = nome;
+        this.nome = nome; //atributoDaClasse = parametroRecebido;
         this.tipo = tipo;
         this.genero = genero;
         this.episodio = episodio;

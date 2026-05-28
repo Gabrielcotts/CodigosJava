@@ -7,6 +7,9 @@ public class AnimeTest01 {
 
     Anime anime = new Anime();
 
+        for (int episodio : anime.getEpisodios()) {
+            System.out.print(episodio   + " ");
+        }
 
     }
 }

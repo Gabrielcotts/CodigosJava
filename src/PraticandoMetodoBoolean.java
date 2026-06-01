@@ -5,3 +5,4 @@ public class PraticandoMetodoBoolean {
         return numero > 0;
     }
 }
+ 

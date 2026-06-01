@@ -1,7 +1,7 @@
 package AtividadesGpt.PraticaDevDojo.Dominio;
 
 public class SistemaContaBancaria {
-    private String titular;
+    private String titular;  
     private double saldo;
 
     public void depositar(double valorDeposito) {

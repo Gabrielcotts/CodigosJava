@@ -18,11 +18,11 @@ public class LoginTest {
         System.out.println("Digite sua senha: ");
         login.setSenha(scanner.nextLine());
 
-        if (login.validarUsuario(login.usuario) == true || login.validarSenha(login.getSenha())){
+        if (!login.validarUsuario(login.usuario) || !login.validarSenha(login.getSenha())){
             System.out.println("Login não efetuado!");
         } else {
             System.out.println("Login efetuado com sucesso!\nSeja bem-vindo");
         }
-
+        scanner.close();
     }
 }

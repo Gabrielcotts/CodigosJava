@@ -46,13 +46,12 @@ public class Aluno {
         return this.nome != null && !this.nome.isEmpty();
     }
 
-    public int verificadorIdade() {
+    public void verificadorIdade() {
         if (this.idade >= 18) {
             System.out.println("Maior de idade");
         } else {
             System.out.println("Menor de idade");
         }
-        return this.idade;
     }
 
 

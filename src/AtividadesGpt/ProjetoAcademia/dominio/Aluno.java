@@ -43,7 +43,7 @@ public class Aluno {
 
     //regras de negócio
     public boolean validadorNome() {
-        return !this.nome.isEmpty() && this.nome != null ;
+        return this.nome != null && !this.nome.isEmpty();
     }
 
     public int verificadorIdade() {

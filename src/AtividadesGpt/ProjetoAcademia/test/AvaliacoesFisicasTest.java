@@ -6,8 +6,7 @@ public class AvaliacoesFisicasTest {
     public static void main(String[] args) {
         AvaliacoesFisicas avaliacoesFisicas = new AvaliacoesFisicas();
 
-
-        avaliacoesFisicas.notaAvaliacao(-5.7, 6.2, 6.7, 7.1, 8.4);
+        avaliacoesFisicas.registrarAvaliacoes(-5.7, 6.2, 6.7, 7.1, 8.4);
 
         if (avaliacoesFisicas.validarAvaliacoes()) {
             avaliacoesFisicas.imprimeAvaliacoes();

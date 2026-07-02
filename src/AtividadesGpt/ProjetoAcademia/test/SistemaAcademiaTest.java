@@ -1,81 +1,96 @@
-    package AtividadesGpt.ProjetoAcademia.test;
+package AtividadesGpt.ProjetoAcademia.test;
 
-    import AtividadesGpt.ProjetoAcademia.dominio.Aluno;
-    import AtividadesGpt.ProjetoAcademia.dominio.AvaliacoesFisicas;
+import AtividadesGpt.ProjetoAcademia.dominio.Aluno;
+import AtividadesGpt.ProjetoAcademia.dominio.AvaliacoesFisicas;
+import AtividadesGpt.ProjetoAcademia.dominio.PlanoAcademia;
 
-    import java.util.Scanner;
+import java.util.Scanner;
 
-    public class SistemaAcademiaTest {
-        public static void main(String[] args) {
-            Aluno aluno = new Aluno();
-            AvaliacoesFisicas avaliacoesFisicas = new AvaliacoesFisicas();
-            Scanner scanner = new Scanner(System.in);
+public class SistemaAcademiaTest {
+    public static void main(String[] args) {
+        Aluno aluno = new Aluno();
+        AvaliacoesFisicas avaliacoesFisicas = new AvaliacoesFisicas();
+        PlanoAcademia planoAcademia = new PlanoAcademia();
+        Scanner scanner = new Scanner(System.in);
 
+        while (true) {
+            System.out.println("\n--- Menu ---\n");
+            System.out.println("1 - Cadastrar aluno");
+            System.out.println("2 - Mostrar dados do aluno");
+            System.out.println("3 - Calcular IMC");
+            System.out.println("4 - Aplicar desconto na mensalidade");
+            System.out.println("5 - Cadastrar avaliações físicas");
+            System.out.println("6 - Mostrar relatório das avaliações");
+            System.out.println("0 - Sair");
+            System.out.print("Escolha uma opção: ");
 
-            while (true) {
-                int opcao = 0;
+            int opcao = scanner.nextInt();
+            scanner.nextLine();
 
-                System.out.println("1 - Cadastrar aluno");
-                System.out.println("2 - Mostrar dados do aluno");
-                System.out.println("3 - Calcular IMC");
-                System.out.println("4 - Aplicar desconto na mensalidade");
-                System.out.println("5 - Cadastrar avaliações físicas");
-                System.out.println("6 - Mostrar relatório das avaliações");
-                System.out.println("0 - Sair");
+            if (opcao == 0) {
+                System.out.println("Atendimento encerrado.");
+                break;
+            }
 
-                switch (opcao){
+            switch (opcao) {
+                case 1:
+                    System.out.println("Digite seu nome: ");
 
-                    case 1:
-                        System.out.println("Digite seu nome: ");
-                        aluno.setNome(scanner.nextLine());
-                        aluno.validadorNome();
-
-                        System.out.println("Digite sua idade: ");
-                        aluno.setIdade(scanner.nextInt());
-                        aluno.verificadorIdade();
-
-                        System.out.println("Digite seu peso: ");
-                        aluno.setPeso(scanner.nextDouble());
-
-                        System.out.println("Digite sua altura: ");
-                        aluno.setAltura(scanner.nextDouble());
-
-                        System.out.println("Digite o plano que deseja cadastrar: ");
-                        System.out.println("Opções de plano: Mensal, Semestral e anual");
-                        aluno.setPlano(scanner.nextLine());
-
-
+                    aluno.setNome(scanner.nextLine());
+                    if (!aluno.validadorNome()) {
+                        System.out.println("Nome inválido!");
                         break;
-                    case 2:
-                        System.out.println("Seus dados: " );
-                        aluno.imprimeDados();
-                        break;
-                    case 3:
-                        System.out.println("Seu IMC: ");
-                        aluno.calcularIMC();
-                        break;
-                    case 4:
-                        System.out.println("Desconto: ");
-                        aluno.aplicarDesconto();
-                        break;
-                    case 5:
-                        System.out.println("Digite suas avaliações físicas: ");
+                    }
 
-                        break;
-                    case 6:
-                        System.out.println("Relatório de avaliações físicas:");
-                        break;
-                    case 0:
-                        if (opcao == 0){
-                            System.out.println("Atendimento encerrado.");
+                    System.out.println("Digite sua idade: ");
+                    aluno.setIdade(scanner.nextInt());
+                    aluno.verificadorIdade();
 
-                        }
-                        break;
-                    default:
-                        System.out.println("Opção inválida!");
-                        break;
-                }
-                scanner.close();
+                    System.out.println("Digite seu peso: ");
+                    aluno.setPeso(scanner.nextDouble());
+
+                    System.out.println("Digite sua altura: ");
+                    aluno.setAltura(scanner.nextDouble());
+                    scanner.nextLine();
+
+                    System.out.println("Digite o plano que deseja cadastrar: ");
+                    planoAcademia.escolherPlano();
+                    break;
+                case 2:
+                    aluno.imprimeDados();
+                    break;
+                case 3:
+                    aluno.calcularIMC();
+                    break;
+                case 4:
+                    aluno.aplicarDesconto();
+                    break;
+                case 5:
+                    System.out.println("Digite suas avaliações físicas: ");
+                    double[] notasDigitadas = new double[5];
+                    for (int i = 0; i < 5; i++) {
+                        System.out.print("Avaliação " + (i + 1) + ": ");
+                        notasDigitadas[i] = scanner.nextDouble();
+                    }
+                    scanner.nextLine();
+
+                    avaliacoesFisicas.registrarAvaliacoes(notasDigitadas[0], notasDigitadas[1], notasDigitadas[2], notasDigitadas[3], notasDigitadas[4]);
+
+                    if (avaliacoesFisicas.validarAvaliacoes()) {
+                        System.out.println("Avaliações cadastradas com sucesso!");
+                    } else {
+                        System.out.println("Erro: As notas precisam ser entre 0 e 10!");
+                    }
+                    break;
+                case 6:
+
+                    avaliacoesFisicas.imprimeAvaliacoes();
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+                    break;
             }
         }
+        scanner.close();
     }
+}

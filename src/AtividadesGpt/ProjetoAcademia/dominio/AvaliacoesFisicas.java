@@ -3,7 +3,7 @@ package AtividadesGpt.ProjetoAcademia.dominio;
 public class AvaliacoesFisicas {
     private double[] avaliacoes = new double[5];
 
-    public void notaAvaliacao(double a, double b, double c, double d, double e) {
+    public void registrarAvaliacoes(double a, double b, double c, double d, double e) {
 
         this.avaliacoes[0] = a;
         this.avaliacoes[1] = b;
@@ -14,9 +14,9 @@ public class AvaliacoesFisicas {
 
     public double maiorAvaliacao() {
         double maior = this.avaliacoes[0];
-        for (double avaliacoe : avaliacoes) {
-            if (avaliacoe > maior) {
-                maior = avaliacoe;
+        for (double avaliacao : avaliacoes) {
+            if (avaliacao > maior) {
+                maior = avaliacao;
             }
         }
         return maior;
@@ -25,9 +25,9 @@ public class AvaliacoesFisicas {
     public double menorAvaliacao() {
         double menor = avaliacoes[0];
 
-        for (double avaliacoe : avaliacoes) {
-            if (menor > avaliacoe) {
-                menor = avaliacoe;
+        for (double avaliacao : avaliacoes) {
+            if (menor > avaliacao) {
+                menor = avaliacao;
             }
         }
         return menor;
@@ -37,7 +37,7 @@ public class AvaliacoesFisicas {
         double soma = 0;
 
         for (double avaliacoe : avaliacoes) {
-            soma += avaliacoe;
+            soma += avaliacoe; 
         }
         double media = soma/avaliacoes.length;
 
@@ -61,5 +61,13 @@ public class AvaliacoesFisicas {
         System.out.println("Menor avaliação física: " + this.menorAvaliacao());
         System.out.println("Avaliação física média: " + this.mediaAvaliacao());
 
+    }
+
+    public double[] getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public void setAvaliacoes(double[] avaliacoes) {
+        this.avaliacoes = avaliacoes;
     }
 }

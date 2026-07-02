@@ -6,9 +6,8 @@ public class Aluno {
     private double peso;
     private double altura;
     private String plano;
-    public static double mensalidadeBruta = 187.50;
+    private static double mensalidadeBruta = 187.50;
 
-    //Contrutores
     public Aluno(String nome) {
         this();
         this.nome = nome;
@@ -22,26 +21,21 @@ public class Aluno {
         this.plano = plano;
     }
 
-    public Aluno() {
+    public Aluno() {}
 
-    }
-
-    //métodos
     public void calcularIMC() {
-        double IMC = this.peso / (this.altura * this.altura);
-        System.out.println("Seu índice de massa corporal (IMC) é: " + IMC);
+            double imc = this.peso / (this.altura * this.altura);
+            System.out.println("Seu índice de massa corporal (imc) é: " + imc);
     }
 
     public void aplicarDesconto() {
-        double desconto = (20.0 / 100) * Aluno.mensalidadeBruta;
-        double mensalidadeLiquida = Aluno.mensalidadeBruta - desconto;
+        double desconto = (20.0 / 100) * mensalidadeBruta;
+        double mensalidadeLiquida = mensalidadeBruta - desconto;
 
         System.out.println("Desconto de 20%: R$ " + desconto);
         System.out.println("Mensalidade líquida: " + mensalidadeLiquida);
     }
 
-
-    //regras de negócio
     public boolean validadorNome() {
         return this.nome != null && !this.nome.isEmpty();
     }
@@ -54,19 +48,16 @@ public class Aluno {
         }
     }
 
-
     public void imprimeDados() {
         System.out.println("----Dados do aluno----\n");
-
-            System.out.println("Nome: " + this.nome);
-            System.out.println("Idade: " + this.idade);
-            System.out.println("Peso: " + this.peso);
-            System.out.println("Altura: " + this.altura);
-            System.out.println("Plano: " + this.plano);
-            System.out.println("Mensalidade: R$ " + Aluno.mensalidadeBruta);
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Idade: " + this.idade);
+        System.out.println("Peso: " + this.peso);
+        System.out.println("Altura: " + this.altura);
+        System.out.println("Plano: " + this.plano);
+        System.out.println("Mensalidade bruta: R$ " + mensalidadeBruta);
     }
 
-    //getters and setters
     public String getNome() {
         return nome;
     }

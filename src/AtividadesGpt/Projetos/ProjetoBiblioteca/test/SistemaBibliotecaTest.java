@@ -8,12 +8,8 @@ import java.util.Scanner;
 public class SistemaBibliotecaTest {
     public static void main(String[] args) {
         Biblioteca biblioteca = new Biblioteca();
-        Livro livro = new Livro();
         Scanner scanner = new Scanner(System.in);
 
-        int capacidadeMax = 100;
-        Livro[] acervo = new Livro[capacidadeMax];
-        int quantidadeLivros = 0;
 
         while (true) {
             System.out.println("1 - Cadastrar livro");
@@ -25,10 +21,8 @@ public class SistemaBibliotecaTest {
             System.out.println("0 - Sair");
 
             int opcao = scanner.nextInt();
-            scanner.nextInt();
-            acervo[capacidadeMax] = new Livro(livro.getTitulo(), livro.getAutor(),
-                    livro.getCategoria(), livro.getQuantidadePaginas(), livro.getAnoPublicacao(), livro.getDisponibilidade());
-            capacidadeMax++;
+            scanner.nextLine();
+
 
             if (opcao == 0) {
                 System.out.println("Atendimento encerrado!");
@@ -37,10 +31,13 @@ public class SistemaBibliotecaTest {
 
             switch (opcao) {
                 case 1:
+                    System.out.println("Digite o título: ");
+                    scanner.nextLine();
+
 
                     break;
                 case 2:
-
+                    biblioteca.mostrarTodosLivros();
                     break;
                 case 3:
 

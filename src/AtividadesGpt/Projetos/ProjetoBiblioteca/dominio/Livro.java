@@ -3,88 +3,106 @@ package AtividadesGpt.Projetos.ProjetoBiblioteca.dominio;
 public class Livro {
 
     private String titulo;
-    private String autor;
-    private String categoria ;
-    private int quantidadePaginas ;
+    private Autor autor;
+    private int numeroPaginas;
     private int anoPublicacao;
-    private String disponibilidade;
+    private boolean disponibilidade;
 
-    public Livro(String titulo, String autor, String categoria,
-                 int quantidadePaginas, int anoPublicacao, String disponibilidade){
-       this();
-       this.titulo = titulo;
-       this.autor = autor;
-       this.categoria = categoria;
-       this.quantidadePaginas = quantidadePaginas;
-       this.anoPublicacao = anoPublicacao;
-       this.disponibilidade = disponibilidade;
+    public Livro(String titulo, Autor autor,
+                 int quantidadePaginas, int anoPublicacao, boolean disponibilidade) {
+        this();
+        this.titulo = titulo;
+        this.autor = autor;
+        this.numeroPaginas = quantidadePaginas;
+        this.anoPublicacao = anoPublicacao;
+        this.disponibilidade = disponibilidade;
     }
 
-    public Livro(){}
+    public Livro() {
+    }
 
-    public boolean validarTitulo(){
-        return this.titulo != null || !this.titulo.isEmpty();
+    public boolean emprestarLivro() {
+        if (disponibilidade) {
+            disponibilidade = false;
+            System.out.println("Livro emprestado com sucesso!");
+            return true;
+        } else {
+            System.out.println("Livro indisponível!");
+            return false;
+        }
+    }
+
+    public boolean devolverLivro() {
+        if (!this.disponibilidade) {
+            this.disponibilidade = true;
+            System.out.println("Livro devolvido com sucesso!");
+            return true;
+        } else {
+            System.out.println("Esse livro já foi devolvido!");
+            return false;
+        }
+    }
+
+    public boolean validarNumeroPaginas() {
+      return this.numeroPaginas >= 49;
+    }
+    public boolean validarNome(){
+        return this.titulo != null && !this.titulo.isEmpty();
     }
     public boolean validarAutor(){
-        return this.autor != null || !this.autor.isEmpty();
-    }
-    public boolean validarQuantidadePaginas(){
-        return this.quantidadePaginas > 0;
+        return this.autor != null;
     }
 
-    public void imprimeDados(){
-        System.out.println("--- Cadastro ---");
-        System.out.println("Título do livro: " + this.titulo);
-        System.out.println("Autor do livro: " + this.autor);
-        System.out.println("Categoria do livro: " + this.categoria);
-        System.out.println("Quantidades de páginas do livro: " + this.quantidadePaginas);
-        System.out.println("Ano de publicação do livro: " + this.anoPublicacao);
-        System.out.println("Disponibilidade do livro: " + this.disponibilidade);
+
+    public void imprimeDados() {
+        System.out.println("--- Dados do livro ---");
+        System.out.println("Título: " + this.titulo);
+        System.out.println("Autor: ");
+        this.autor.imprimeDadosAutor();
+        System.out.println("Número de páginas: " + this.numeroPaginas);
+        System.out.println("Ano de publicação: " + this.anoPublicacao);
+        System.out.println("Disponibilidade: " + this.disponibilidade);
     }
 
-    public boolean validarAnoPublicacao(){
-        return this.anoPublicacao <= 2026 && this.anoPublicacao >= 1455;
-    }
 
-    public String getTitulo(){
+
+    public String getTitulo() {
         return titulo;
     }
-    public void setTitulo(String titulo){
+
+    public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
-    public String getAutor() {
+    public Autor getAutor() {
         return autor;
     }
-    public void setAutor(String autor) {
+
+    public void setAutor(Autor autor) {
         this.autor = autor;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public int getNumeroPaginas() {
+        return numeroPaginas;
     }
 
-    public int getQuantidadePaginas() {
-        return quantidadePaginas;
-    }
-    public void setQuantidadePaginas(int quantidadePaginas) {
-        this.quantidadePaginas = quantidadePaginas;
+    public void setNumeroPaginas(int numeroPaginas) {
+        this.numeroPaginas = numeroPaginas;
     }
 
     public int getAnoPublicacao() {
         return anoPublicacao;
     }
+
     public void setAnoPublicacao(int anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
     }
 
-    public String getDisponibilidade() {
+    public boolean isDisponibilidade() {
         return disponibilidade;
     }
-    public void setDisponibilidade(String disponibilidade) {
+
+    public void setDisponibilidade(boolean disponibilidade) {
         this.disponibilidade = disponibilidade;
     }
 }

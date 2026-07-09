@@ -1,43 +1,37 @@
 package AtividadesGpt.Projetos.ProjetoBiblioteca.dominio;
 
 public class Biblioteca {
-    private String nome;
-    private int idade;
-    private int cpf;
+    public int capacidadeMax = 100;
+    public Livro[] livros = new Livro[capacidadeMax];
+    public int quantidadeLivros = 0;
 
-    public void alugarLivro(){
+    public boolean cadastrarLivro(Livro novoLivro) {
+        if (quantidadeLivros < capacidadeMax){
+            livros[quantidadeLivros] = novoLivro;
+            quantidadeLivros++;
+            System.out.println("Livro cadastrado com sucesso!");
+            return true;
+        } else {
+            System.out.println("Biblioteca sem espaço para novos livros!");
+            return false;
+        }
 
-    }
-
-    public boolean validarNome(){
-        return this.nome != null || !this.nome.isEmpty();
-    }
-    public boolean validarIdade(){
-        return this.idade >= 18 && this.idade < 120;
-    }
-    public boolean validarCpf(){
-        return this.cpf == 11;
-    }
-
-
-    public String getNome() {
-        return nome;
-    }
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
-    }
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void mostrarTodosLivros() {
+
+
+        }
     }
 
-    public int getCpf() {
-        return cpf;
+    public void mostrarLivrosDisponiveis() {
     }
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
+
+    public void mostrarLivrosEmprestados() {
     }
+
+    public void totalLivrosCadastrados() {
+    }
+
+
 }

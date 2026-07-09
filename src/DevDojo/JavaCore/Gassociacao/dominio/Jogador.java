@@ -2,13 +2,25 @@ package DevDojo.JavaCore.Gassociacao.dominio;
 
 public class Jogador {
     private String nome;
+    private Time time;
 
     public void imprimeDados() {
         System.out.println("Nome: " + this.nome);
+        if (time != null){
+            System.out.println("Seleção: " + time.getNome());
+        }
     }
 
     public Jogador(String nome) {
         this.nome = nome;
+    }
+
+    public void setTime(Time time){
+        this.time = time;
+    }
+
+    public Time getTime(){
+        return this.time;
     }
 
     public void setNome(String nome) {
@@ -18,6 +30,5 @@ public class Jogador {
     public String getNome() {
         return nome;
     }
-
 
 }

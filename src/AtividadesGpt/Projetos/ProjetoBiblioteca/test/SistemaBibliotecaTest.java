@@ -1,5 +1,6 @@
 package AtividadesGpt.Projetos.ProjetoBiblioteca.test;
 
+import AtividadesGpt.Projetos.ProjetoBiblioteca.dominio.Autor;
 import AtividadesGpt.Projetos.ProjetoBiblioteca.dominio.Biblioteca;
 import AtividadesGpt.Projetos.ProjetoBiblioteca.dominio.Livro;
 
@@ -31,9 +32,34 @@ public class SistemaBibliotecaTest {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Digite o título: ");
+
+                    System.out.println("Digite o título:");
+                    String titulo = scanner.nextLine();
+
+                    System.out.println("Digite o nome do autor:");
+                    String nomeAutor = scanner.nextLine();
+
+                    System.out.println("Digite a nacionalidade:");
+                    String nacionalidade = scanner.nextLine();
+
+                    Autor autor = new Autor(nomeAutor, nacionalidade);
+
+                    System.out.println("Digite o número de páginas:");
+                    int paginas = scanner.nextInt();
+
+                    System.out.println("Digite o ano de publicação:");
+                    int ano = scanner.nextInt();
                     scanner.nextLine();
 
+                    Livro livro = new Livro(
+                            titulo,
+                            autor,
+                            paginas,
+                            ano,
+                            true
+                    );
+
+                    biblioteca.cadastrarLivro(livro);
 
                     break;
                 case 2:

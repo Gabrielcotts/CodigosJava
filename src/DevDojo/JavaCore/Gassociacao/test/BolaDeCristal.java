@@ -13,10 +13,11 @@ public class BolaDeCristal {
             System.out.println("Escolha uma opção: ");
             System.out.println("1 - Jogar");
             System.out.println("2 - Sair");
+
             int opcao = scanner.nextInt();
             scanner.nextLine();
 
-            if (opcao == 2){
+            if (opcao == 2) {
                 System.out.println("Encerrando programa.");
                 break;
             }
@@ -28,6 +29,13 @@ public class BolaDeCristal {
 
                     if (pergunta.length() > 0 && pergunta.charAt(0) == ' ') {
                         System.out.println("SIM\n");
+                    } else if (pergunta.length() > 0 && pergunta.charAt(0) == '.') {
+                        System.out.println("Desculpe, mas fui programado ' ameaçado 😰 ' " +
+                                "para não ofender meu lindo e carinhoso desenvolvedor 💔🤐\n");
+
+                        System.out.println("Acho melhor encerrarmos por aqui.👀🤕😢 ");
+                        return;
+
                     } else {
                         System.out.println("NÃO\n");
                     }

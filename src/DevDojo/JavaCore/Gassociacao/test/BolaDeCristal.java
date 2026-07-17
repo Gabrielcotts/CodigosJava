@@ -28,7 +28,7 @@ public class BolaDeCristal {
                     String pergunta = scanner.nextLine();
 
                     if (pergunta.length() > 0 && pergunta.charAt(0) == ' ') {
-                        System.out.println("SIM\n");
+                        System.out.println("NÃO\n");
                     } else if (pergunta.length() > 0 && pergunta.charAt(0) == '.') {
                         System.out.println("Desculpe, mas fui programado ' ameaçado 😰 ' " +
                                 "para não ofender meu lindo e carinhoso desenvolvedor 💔🤐\n");
@@ -37,7 +37,7 @@ public class BolaDeCristal {
                         return;
 
                     } else {
-                        System.out.println("NÃO\n");
+                        System.out.println("SIM\n");
                     }
                     break;
 
